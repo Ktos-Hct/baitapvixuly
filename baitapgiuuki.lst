@@ -1,0 +1,260 @@
+CCS PCM C Compiler, Version 5.015, 5967               13-Mar-20 17:18
+
+               Filename:   C:\users\eternal\Desktop\Code\baitapgiuuki.lst
+
+               ROM used:   167 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   6 (2%) at main() level
+                           9 (2%) worst case
+               Stack used: 2 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   083
+0003:  NOP
+.................... #include<16f887.h> 
+.................... //////////// Standard Header file for the PIC16F887 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F887 
+....................  
+.................... #list 
+....................  
+.................... #fuses hs,put,noprotect,nolvp,nowdt 
+.................... #use delay(clock=40M) 
+0004:  MOVLW  23
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   018
+000A:  MOVLW  0C
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  F7
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  GOTO   016
+0016:  DECFSZ 00,F
+0017:  GOTO   00A
+0018:  RETURN
+.................... unsigned INT8 y; 
+.................... void on(void){ 
+....................   y=0xFF;// 11111111 
+0019:  MOVLW  FF
+001A:  MOVWF  20
+....................   output_d(y); 
+001B:  BSF    03.5
+001C:  CLRF   08
+001D:  BCF    03.5
+001E:  MOVF   20,W
+001F:  MOVWF  08
+....................   delay_ms(500); 
+0020:  MOVLW  02
+0021:  MOVWF  21
+0022:  MOVLW  FA
+0023:  MOVWF  23
+0024:  CALL   004
+0025:  DECFSZ 21,F
+0026:  GOTO   022
+0027:  RETURN
+....................  
+.................... } 
+.................... void off(void){ 
+....................   y=0x00;//00000000 
+0028:  CLRF   20
+....................   output_d(y); 
+0029:  BSF    03.5
+002A:  CLRF   08
+002B:  BCF    03.5
+002C:  MOVF   20,W
+002D:  MOVWF  08
+....................   delay_ms(500); 
+002E:  MOVLW  02
+002F:  MOVWF  21
+0030:  MOVLW  FA
+0031:  MOVWF  23
+0032:  CALL   004
+0033:  DECFSZ 21,F
+0034:  GOTO   030
+0035:  RETURN
+....................  
+.................... } 
+.................... void sangduoi(){ 
+....................   unsigned char a; 
+....................   for(a=0;a<4;a++) {        //y=10111111 
+0036:  CLRF   21
+0037:  MOVF   21,W
+0038:  SUBLW  03
+0039:  BTFSS  03.0
+003A:  GOTO   052
+....................   y=(((y<<2)|0x03)&0x7F);//   y=11011111 
+003B:  RLF    20,W
+003C:  MOVWF  77
+003D:  RLF    77,F
+003E:  MOVLW  FC
+003F:  ANDWF  77,F
+0040:  MOVF   77,W
+0041:  IORLW  03
+0042:  ANDLW  7F
+0043:  MOVWF  20
+....................   output_d(y);//           0xBF=10111111=10011111 
+0044:  BSF    03.5
+0045:  CLRF   08
+0046:  BCF    03.5
+0047:  MOVF   20,W
+0048:  MOVWF  08
+....................   delay_ms(700); 
+0049:  MOVLW  04
+004A:  MOVWF  22
+004B:  MOVLW  AF
+004C:  MOVWF  23
+004D:  CALL   004
+004E:  DECFSZ 22,F
+004F:  GOTO   04B
+0050:  INCF   21,F
+0051:  GOTO   037
+.................... }//         0x7F=01111111 =00001111 
+0052:  RETURN
+.................... } 
+.................... void sangduoi1(){ 
+....................   unsigned char a; 
+....................   for(a=0;a<5;a++) 
+0053:  CLRF   21
+0054:  MOVF   21,W
+0055:  SUBLW  04
+0056:  BTFSS  03.0
+0057:  GOTO   06A
+....................   { 
+....................     y=((y>>1)|0x20); 
+0058:  BCF    03.0
+0059:  RRF    20,W
+005A:  IORLW  20
+005B:  MOVWF  20
+....................     delay_ms(500); 
+005C:  MOVLW  02
+005D:  MOVWF  22
+005E:  MOVLW  FA
+005F:  MOVWF  23
+0060:  CALL   004
+0061:  DECFSZ 22,F
+0062:  GOTO   05E
+....................     output_d(y); 
+0063:  BSF    03.5
+0064:  CLRF   08
+0065:  BCF    03.5
+0066:  MOVF   20,W
+0067:  MOVWF  08
+0068:  INCF   21,F
+0069:  GOTO   054
+....................   } 
+006A:  RETURN
+....................  
+.................... } 
+.................... void tatduoi(){ 
+....................   unsigned char a; 
+....................   for(a=0;a<7;a++) 
+006B:  CLRF   21
+006C:  MOVF   21,W
+006D:  SUBLW  06
+006E:  BTFSS  03.0
+006F:  GOTO   082
+....................   { 
+....................     y=((y>>1)&0xBF); 
+0070:  BCF    03.0
+0071:  RRF    20,W
+0072:  ANDLW  BF
+0073:  MOVWF  20
+....................     delay_ms(500); 
+0074:  MOVLW  02
+0075:  MOVWF  22
+0076:  MOVLW  FA
+0077:  MOVWF  23
+0078:  CALL   004
+0079:  DECFSZ 22,F
+007A:  GOTO   076
+....................     output_d(y); 
+007B:  BSF    03.5
+007C:  CLRF   08
+007D:  BCF    03.5
+007E:  MOVF   20,W
+007F:  MOVWF  08
+0080:  INCF   21,F
+0081:  GOTO   06C
+....................   } 
+0082:  RETURN
+.................... } 
+....................  
+.................... void main(void){ 
+0083:  MOVF   03,W
+0084:  ANDLW  1F
+0085:  MOVWF  03
+0086:  BSF    03.5
+0087:  BSF    03.6
+0088:  MOVF   09,W
+0089:  ANDLW  C0
+008A:  MOVWF  09
+008B:  BCF    03.6
+008C:  BCF    1F.4
+008D:  BCF    1F.5
+008E:  MOVLW  00
+008F:  BSF    03.6
+0090:  MOVWF  08
+0091:  BCF    03.5
+0092:  CLRF   07
+0093:  CLRF   08
+0094:  CLRF   09
+0095:  BCF    03.7
+....................   while(1){ 
+....................     on(); 
+0096:  BCF    03.6
+0097:  CALL   019
+....................     off(); 
+0098:  CALL   028
+....................     sangduoi(); 
+0099:  CALL   036
+....................     off(); 
+009A:  CALL   028
+....................     sangduoi(); 
+009B:  CALL   036
+....................     off(); 
+009C:  CALL   028
+....................     sangduoi1(); 
+009D:  CALL   053
+....................     off(); 
+009E:  CALL   028
+....................     sangduoi1(); 
+009F:  CALL   053
+....................     off(); 
+00A0:  CALL   028
+....................     on(); 
+00A1:  CALL   019
+....................     tatduoi(); 
+00A2:  CALL   06B
+....................     on(); 
+00A3:  CALL   019
+....................     tatduoi(); 
+00A4:  CALL   06B
+00A5:  GOTO   097
+....................  
+....................   } 
+.................... } 
+00A6:  SLEEP
+
+Configuration Fuses:
+   Word  1: 2FE2   HS NOWDT PUT MCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

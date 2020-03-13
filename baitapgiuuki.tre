@@ -1,0 +1,31 @@
+ÀÄbaitapgiuuki
+   ÀÄMAIN  0/36  Ram=0
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄon  0/15  Ram=1
+      ³  ÀÄ@delay_ms1  0/21  Ram=1
+      ÃÄoff  0/14  Ram=1
+      ³  ÀÄ@delay_ms1  0/21  Ram=1
+      ÃÄsangduoi  0/29  Ram=2
+      ³  ÀÄ@delay_ms1  0/21  Ram=1
+      ÃÄoff  0/14  Ram=1
+      ³  ÀÄ*
+      ÃÄsangduoi  0/29  Ram=2
+      ³  ÀÄ*
+      ÃÄoff  0/14  Ram=1
+      ³  ÀÄ*
+      ÃÄsangduoi1  0/24  Ram=2
+      ³  ÀÄ@delay_ms1  0/21  Ram=1
+      ÃÄoff  0/14  Ram=1
+      ³  ÀÄ*
+      ÃÄsangduoi1  0/24  Ram=2
+      ³  ÀÄ*
+      ÃÄoff  0/14  Ram=1
+      ³  ÀÄ*
+      ÃÄon  0/15  Ram=1
+      ³  ÀÄ*
+      ÃÄtatduoi  0/24  Ram=2
+      ³  ÀÄ@delay_ms1  0/21  Ram=1
+      ÃÄon  0/15  Ram=1
+      ³  ÀÄ*
+      ÀÄtatduoi  0/24  Ram=2
+         ÀÄ*

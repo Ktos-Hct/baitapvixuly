@@ -1,0 +1,70 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     y
+021     sangduoi.a
+021     sangduoi1.a
+021     tatduoi.a
+021     on.@SCRATCH1
+021     off.@SCRATCH1
+022     sangduoi.@SCRATCH1
+022     sangduoi1.@SCRATCH1
+022     tatduoi.@SCRATCH1
+023     @delay_ms1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @delay_ms1
+000019  on
+000028  off
+000036  sangduoi
+000053  sangduoi1
+00006B  tatduoi
+000083  @cinit1
+000083  MAIN
+000095  @cinit2
+
+Project Directory:
+    C:\users\eternal\Desktop\Code\
+
+Project Files:
+    baitapgiuuki.c                                          [13-Mar-20 17:18  CRC=973E0331]
+    ..\..\..\..\Program Files (x86)\PICC\Devices\16f887.h   [12-Nov-13 14:35  CRC=6CB1A611]
+
+Source signature=70A14F53
+
+Units:
+    baitapgiuuki (main)
+
+Compiler Settings:
+    Processor:      PIC16F887
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   baitapgiuuki.xsym
+    Errors:      baitapgiuuki.err
+    Ext Symbols: baitapgiuuki.esym
+    INHX8:       baitapgiuuki.hex
+    Symbols:     baitapgiuuki.sym
+    List:        baitapgiuuki.lst
+    Debug/COFF:  baitapgiuuki.cof
+    Project:     baitapgiuuki.ccspjt
+    Call Tree:   baitapgiuuki.tre
+    Statistics:  baitapgiuuki.STA
